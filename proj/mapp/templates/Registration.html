@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Flat Registration</title></head>
+<body>
+    <h1>{% if editing %}Edit registration{% else %}Register a flat{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- ModelForm generates inputs, labels, choices and validation errors. -->
+        {{ form.as_p }}
+        <button type="submit">{% if editing %}Save changes{% else %}Register{% endif %}</button>
+    </form>
+    <p><a href="{% url 'home' %}">Home</a></p>
+    <p><a href="{% url 'display_registrations' %}">Registered customers</a></p>
+</body>
+</html>

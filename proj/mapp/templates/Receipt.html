@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Allocation Receipt</title></head>
+<body>
+    <h1>Flat Allocation Receipt</h1>
+    <p>Registration ID: {{ customer.id }}</p>
+    <p>Customer: {{ customer.customer_name }}</p>
+    <p>Mobile: {{ customer.mobile_number }}</p>
+    <p>Email: {{ customer.email }}</p>
+    <p>Apartment: {{ customer.apartment_name }}</p>
+    <p>Flat type: {{ customer.flat_type }}</p>
+    <p>Floor: {{ floor }}</p>
+    <p>Area: {{ area }} sq. ft.</p>
+    <p>Price per sq. ft.: ₹{{ rate|floatformat:2 }}</p>
+    <p><strong>Total cost: ₹{{ customer.total_cost }}</strong></p>
+    <p><a href="{% url 'display_registrations' %}">Registered customers</a></p>
+    <p><a href="{% url 'home' %}">Home</a></p>
+</body>
+</html>

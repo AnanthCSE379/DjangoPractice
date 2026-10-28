@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Building Promoter</title></head>
+<body>
+    <h1>Building Promoter</h1>
+    <p>Five apartment complexes, each with three floors.</p>
+    <ul>
+        <li>Ground floor: 3 BHK — 1,200 sq. ft.</li>
+        <li>First floor: 2 BHK — 1,000 sq. ft.</li>
+        <li>Second floor: 1 BHK — 800 sq. ft.</li>
+    </ul>
+    <!-- URL names generate links; no hard-coded page filenames are needed. -->
+    <p><a href="{% url 'register_flat' %}">Register a flat</a></p>
+    <p><a href="{% url 'display_apartments' %}">Apartment inventory</a></p>
+    <p><a href="{% url 'display_registrations' %}">Registered customers</a></p>
+    <p><a href="{% url 'admin:index' %}">Manage apartments in admin</a></p>
+</body>
+</html>

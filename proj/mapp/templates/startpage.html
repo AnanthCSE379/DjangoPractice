@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <form method="post">
+    {% csrf_token %}
+
+    <label>Name:</label>
+    <input type="text" name="name">
+
+    <label>Age:</label>
+    <input type="number" name="age">
+
+    <label>Marks:</label>
+    <input type="number" name="marks">
+
+    <label>Total Marks:</label>
+    <input type="number" name="totalmarks">
+
+    <button type="submit">Submit</button>
+</form>
+
+
+<p>{{ name }}</p>
+<p>{{ age }}</p>
+<p>{{ marks }}</p>
+<p>{{ total_marks }}</p>
+<p>{{ percentage }}</p>
+</body>

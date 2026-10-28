@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Apartment Inventory</title></head>
+<body>
+    <h1>Apartment Inventory</h1>
+    <table border="1" cellpadding="6">
+        <tr><th>ID</th><th>Apartment</th><th>Address</th><th>Floor</th>
+            <th>Flat type</th><th>Area (sq. ft.)</th><th>Total flats</th>
+            <th>Available flats</th><th>Price per sq. ft. (₹)</th></tr>
+        {% for apartment in apartments %}
+        <tr>
+            <td>{{ apartment.id }}</td><td>{{ apartment.apartment_name }}</td>
+            <td>{{ apartment.address }}</td><td>{{ apartment.floor_number }}</td>
+            {% if apartment.floor_number == 0 %}<td>3 BHK</td><td>1200</td>
+            {% elif apartment.floor_number == 1 %}<td>2 BHK</td><td>1000</td>
+            {% else %}<td>1 BHK</td><td>800</td>{% endif %}
+            <td>{{ apartment.total_flats }}</td><td>{{ apartment.available_flats }}</td>
+            <td>{{ apartment.price_per_sqft }}</td>
+        </tr>
+        {% empty %}<tr><td colspan="9">No apartments added yet.</td></tr>{% endfor %}
+    </table>
+    <p><a href="{% url 'register_flat' %}">Register a flat</a></p>
+    <p><a href="{% url 'home' %}">Home</a></p>
+</body>
+</html>

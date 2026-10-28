@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Registered Customers</title></head>
+<body>
+    <h1>Registered Customers</h1>
+    <table border="1" cellpadding="6">
+        <tr><th>ID</th><th>Name</th><th>Mobile</th><th>Email</th><th>Apartment</th>
+            <th>Flat type</th><th>Total cost (₹)</th><th>Actions</th></tr>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.id }}</td><td>{{ customer.customer_name }}</td>
+            <td>{{ customer.mobile_number }}</td><td>{{ customer.email }}</td>
+            <td>{{ customer.apartment_name }}</td><td>{{ customer.flat_type }}</td>
+            <td>{{ customer.total_cost }}</td>
+            <td>
+                <a href="{% url 'receipt' customer.id %}">Receipt</a>
+                <a href="{% url 'edit_registration' customer.id %}">Edit</a>
+                <!-- Deleting changes data, so use a POST form instead of a link. -->
+                <form method="post" action="{% url 'delete_registration' customer.id %}">
+                    {% csrf_token %}
+                    <button type="submit" onclick="return confirm('Delete this registration?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% empty %}<tr><td colspan="8">No registered customers.</td></tr>{% endfor %}
+    </table>
+    <p><a href="{% url 'register_flat' %}">Register a flat</a></p>
+    <p><a href="{% url 'home' %}">Home</a></p>
+</body>
+</html>
