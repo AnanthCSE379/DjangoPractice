@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            The all faculties page of application
+        </title>
+    </head>
+    <body>
+        <h1>
+           All faculties page
+        </h1>
+        <table>
+            <tr>
+                <th>Faculty ID</th><th>Name</th><th>age</th><th>mobile</th><th>mail</th><th>dept</th>
+            </tr>
+            {% for faculty in facs %}
+            <tr>
+                <td>{{ faculty.staffid }}</td><td>{{ faculty.name }}</td><td>{{ faculty.age }}</td><td>{{ faculty.mobile }}</td><td>{{ faculty.mail }}</td><td>{{ faculty.dept }}</td>
+                <td>
+                    <a href="{% url 'update' faculty.id %}">Update</a>
+                    <a href="{% url 'delete' faculty.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

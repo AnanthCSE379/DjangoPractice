@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            The updation page of application
+        </title>
+    </head>
+    <body>
+        <h1>
+            Update
+        </h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </body>
+</html>
