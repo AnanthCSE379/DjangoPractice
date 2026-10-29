@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Search Player</title></head>
+    <body>
+        <h1>Search Player</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label>Player ID:</label>
+            <input type="text" name="id" required>
+            <button type="submit">Search</button>
+        </form>
+        <p><a href="{% url 'start' %}">Home</a></p>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Best Player</title></head>
+    <body>
+        <h1>Find Best Player</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label>Player Type:</label>
+            <select name="player_type">
+                <option value="Goalie">Goalie</option>
+                <option value="Field Player">Field Player</option>
+            </select>
+            <button type="submit">Find Best</button>
+        </form>
+        {% if best %}
+            <h2>Best {{ best.player_type }}</h2>
+            <p>ID: {{ best.id }}</p>
+            <p>Name: {{ best.name }}</p>
+            <p>Matches: {{ best.count }}</p>
+            {% if best.player_type == 'Goalie' %}
+                <p>Shots Stopped: {{ best.TotalStoppingShots }}</p>
+                <p>Stop Rate: {{ best.stoprate|floatformat:2 }}</p>
+            {% else %}
+                <p>Goals: {{ best.GoalCount }}</p>
+            {% endif %}
+        {% elif searched %}
+            <p>No players found for this type.</p>
+        {% endif %}
+        <p><a href="{% url 'start' %}">Home</a></p>
+    </body>
+</html>

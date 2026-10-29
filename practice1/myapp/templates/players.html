@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Players List</title></head>
+    <body>
+        <h1>{{ title|default:'All Players' }}</h1>
+        <table border="1">
+            <tr>
+                <th>ID</th><th>Name</th><th>Player Type</th><th>Match Count</th>
+                <th>Shots Stopped</th><th>Stop Rate</th><th>Goals</th>
+            </tr>
+            {% for player in players %}
+            <tr>
+                <td>{{ player.id }}</td><td>{{ player.name }}</td>
+                <td>{{ player.player_type }}</td><td>{{ player.count }}</td>
+                {% if player.player_type == 'Goalie' %}
+                    <td>{{ player.TotalStoppingShots }}</td>
+                    <td>{{ player.stoprate|floatformat:2 }}</td><td>-</td>
+                {% else %}
+                    <td>-</td><td>-</td><td>{{ player.GoalCount }}</td>
+                {% endif %}
+            </tr>
+            {% empty %}
+                <tr><td colspan="7">No players found.</td></tr>
+            {% endfor %}
+        </table>
+        <p><a href="{% url 'start' %}">Home</a></p>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Register Player</title></head>
+    <body>
+        <h1>Register Player</h1>
+        <p>Enter a unique five-digit Player ID.</p>
+        <p>For a Goalie enter shots stopped; for a Field Player enter goals.</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register Player</button>
+        </form>
+        <p><a href="{% url 'start' %}">Home</a></p>
+    </body>
+</html>
