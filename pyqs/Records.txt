@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Ananth",
+        "mobile": "7538814890",
+        "domain": "Earth",
+        "total": 2,
+        "correct": 1,
+        "wrong": 1,
+        "score": 0
+    },
+    {
+        "name": "Dev",
+        "mobile": "1",
+        "domain": "Earth",
+        "total": 2,
+        "correct": 2,
+        "wrong": 0,
+        "score": 2
+    }
+]

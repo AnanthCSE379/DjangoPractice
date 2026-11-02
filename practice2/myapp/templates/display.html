@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Display Patient Details
+        </title>
+    </head>
+    <body>
+        <h1>
+            Patient Details
+        </h1>
+        <table>
+            <tr>
+                <th>PatientID</th><th>Name</th><th>AdmitDate</th><th>DischargeDate</th><th>TotalDays</th><th>Amount</th>
+            </tr>
+            {% for record in details %}
+            <tr>
+                <td>{{ record.patientid }}</td><td>{{ record.name }}</td><td> {{ record.admit_date }}</td><td>{{ record.discharge_date }}</td><td>{{ record.total_days }}</td><td>{{ record.amount }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

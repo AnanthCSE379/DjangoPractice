@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Confirm Delete</title></head>
+    <body>
+        <h1>Delete Asset</h1>
+        <p>Delete {{ asset.asset_id }} - {{ asset.name }}? This cannot be undone.</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Confirm Delete</button>
+        </form>
+        <p><a href="{% url 'assets:list' %}">Cancel</a></p>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Payment Details
+        </title>
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="pid" placeholder="Patient ID">
+            <button type="submit">Enter</button>
+        </form>
+        {% if details %}
+        <h5>Name : {{ details.name }}</h5>
+        <h5>Admit Date : {{ details.admit_date }}</h5>
+        <h5>Discharge Date : {{ details.discharge_date }}</h5>
+        <h5>Total : {{ details.total_days }}</h5>
+        <h5>Amount : {{ details.amount }}</h5>
+        {% endif %}
+        {% if error %}
+        <h2>
+            No details of Patient present
+        </h2>
+        {% endif %}
+    </body>
+</html>

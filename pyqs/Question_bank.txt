@@ -1,0 +1,26 @@
+[
+    {
+        "Earth": [
+            [
+                "why are trees green",
+                [
+                    "chlorophyll",
+                    "sunlight",
+                    "age",
+                    "water"
+                ],
+                "chlorophyll"
+            ],
+            [
+                "why mamoth extinct",
+                [
+                    "asteroid",
+                    "age",
+                    "depression",
+                    "time"
+                ],
+                "asteroid"
+            ]
+        ]
+    }
+]

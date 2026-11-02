@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head><title>All Assets</title></head>
+    <body>
+        <a href="{% url 'assets:add' %}" style="float:right">+ Add Asset</a>
+        <h1>All Assets</h1>
+
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+
+        <table border="1">
+            <tr>
+                <th>Asset ID</th><th>Name</th><th>Category</th>
+                <th>Purchase Date</th><th>Status</th><th>Cost</th>
+                <th>Location</th><th>Actions</th>
+            </tr>
+            {% for asset in details %}
+            <tr>
+                <td>{{ asset.asset_id }}</td><td>{{ asset.name }}</td>
+                <td>{{ asset.category }}</td><td>{{ asset.purchase_date }}</td>
+                <td>{{ asset.status }}</td><td>{{ asset.cost }}</td>
+                <td>{{ asset.location }}</td>
+                <td><a href="{% url 'assets:delete' asset.id %}">Delete</a></td>
+            </tr>
+            {% empty %}
+                <tr><td colspan="8">No assets added yet.</td></tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
